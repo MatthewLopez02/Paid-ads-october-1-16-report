@@ -233,50 +233,70 @@
             border: 1px solid var(--border);
         }
 
-        .bar-chart {
+        .pie-chart-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .pie-chart {
+            position: relative;
+            width: 350px;
+            height: 350px;
+        }
+
+        .pie-chart svg {
+            transform: rotate(-90deg);
+        }
+
+        .pie-legend {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
-        .bar-item {
+        .legend-item {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .bar-label {
-            min-width: 120px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text);
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 6px;
+            flex-shrink: 0;
         }
 
-        .bar-track {
+        .legend-color.google { background: var(--google); }
+        .legend-color.meta { background: var(--meta); }
+        .legend-color.tiktok { background: var(--tiktok); }
+        .legend-color.asa { background: var(--asa); }
+
+        .legend-details {
             flex: 1;
-            height: 40px;
-            background: #e8eef5;
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .bar-fill {
-            height: 100%;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            padding: 0 1rem;
-            color: white;
+        .legend-platform {
             font-weight: 700;
-            font-size: 0.9rem;
-            transition: width 1.5s ease;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
         }
 
-        .bar-fill.google { background: linear-gradient(90deg, #4285f4, #669df6); }
-        .bar-fill.meta { background: linear-gradient(90deg, #1877f2, #42a5f5); }
-        .bar-fill.tiktok { background: linear-gradient(90deg, #000000, #333333); }
-        .bar-fill.asa { background: linear-gradient(90deg, #555555, #777777); }
+        .legend-amount {
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .legend-percent {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-left: 0.5rem;
+        }
 
         .insights-grid {
             display: grid;
@@ -484,29 +504,59 @@
         <div class="section animate">
             <h2>💰 Spend Distribution by Platform</h2>
             <div class="chart-container">
-                <div class="bar-chart">
-                    <div class="bar-item">
-                        <div class="bar-label">Google Ads</div>
-                        <div class="bar-track">
-                            <div class="bar-fill google" style="width: 76.9%;">$150,117 (76.9%)</div>
-                        </div>
+                <div class="pie-chart-container">
+                    <div class="pie-chart">
+                        <svg width="350" height="350" viewBox="0 0 350 350">
+                            <!-- Google Ads: 76.9% -->
+                            <circle cx="175" cy="175" r="140" fill="none" stroke="#4285f4" stroke-width="80"
+                                stroke-dasharray="676.9 200" stroke-dashoffset="0" />
+                            <!-- Meta Ads: 9.2% -->
+                            <circle cx="175" cy="175" r="140" fill="none" stroke="#1877f2" stroke-width="80"
+                                stroke-dasharray="80.9 796" stroke-dashoffset="-676.9" />
+                            <!-- TikTok Ads: 7.9% -->
+                            <circle cx="175" cy="175" r="140" fill="none" stroke="#000000" stroke-width="80"
+                                stroke-dasharray="69.5 807.4" stroke-dashoffset="-757.8" />
+                            <!-- ASA: 6.0% -->
+                            <circle cx="175" cy="175" r="140" fill="none" stroke="#555555" stroke-width="80"
+                                stroke-dasharray="52.8 824.1" stroke-dashoffset="-827.3" />
+
+                            <!-- Center circle for donut effect -->
+                            <circle cx="175" cy="175" r="100" fill="#fafbfc" />
+
+                            <!-- Total in center -->
+                            <text x="175" y="165" text-anchor="middle" font-size="16" fill="#666666" font-weight="600">TOTAL SPEND</text>
+                            <text x="175" y="195" text-anchor="middle" font-size="28" fill="#0a2463" font-weight="700">$195,181</text>
+                        </svg>
                     </div>
-                    <div class="bar-item">
-                        <div class="bar-label">Meta Ads</div>
-                        <div class="bar-track">
-                            <div class="bar-fill meta" style="width: 9.2%;">$18,044 (9.2%)</div>
+
+                    <div class="pie-legend">
+                        <div class="legend-item">
+                            <div class="legend-color google"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Google Ads</div>
+                                <div class="legend-amount">$150,117 <span class="legend-percent">76.9%</span></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="bar-item">
-                        <div class="bar-label">TikTok Ads</div>
-                        <div class="bar-track">
-                            <div class="bar-fill tiktok" style="width: 7.9%;">$15,370 (7.9%)</div>
+                        <div class="legend-item">
+                            <div class="legend-color meta"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Meta Ads</div>
+                                <div class="legend-amount">$18,044 <span class="legend-percent">9.2%</span></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="bar-item">
-                        <div class="bar-label">Apple Search</div>
-                        <div class="bar-track">
-                            <div class="bar-fill asa" style="width: 6.0%;">$11,650 (6.0%)</div>
+                        <div class="legend-item">
+                            <div class="legend-color tiktok"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">TikTok Ads</div>
+                                <div class="legend-amount">$15,370 <span class="legend-percent">7.9%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color asa"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Apple Search</div>
+                                <div class="legend-amount">$11,650 <span class="legend-percent">6.0%</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -546,7 +596,6 @@
                 <div class="platform-card meta">
                     <div class="platform-header">
                         <div class="platform-name">Meta Ads</div>
-                        <div class="platform-badge badge-good">Testing Phase</div>
                     </div>
                     <div class="metric-row">
                         <span class="metric-label">Spend</span>
@@ -573,7 +622,6 @@
                 <div class="platform-card tiktok">
                     <div class="platform-header">
                         <div class="platform-name">TikTok Ads</div>
-                        <div class="platform-badge badge-best">Best CPA</div>
                     </div>
                     <div class="metric-row">
                         <span class="metric-label">Spend</span>
