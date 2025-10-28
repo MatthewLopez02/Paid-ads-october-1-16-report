@@ -248,6 +248,7 @@
         }
 
         .pie-chart svg {
+            transform: rotate(-90deg);
             border-radius: 50%;
         }
 
@@ -766,8 +767,10 @@
                             <circle cx="175" cy="175" r="100" fill="#fafbfc" />
 
                             <!-- Total in center -->
-                            <text x="175" y="165" text-anchor="middle" font-size="16" fill="#666666" font-weight="600">TRANSACTIONS</text>
-                            <text x="175" y="195" text-anchor="middle" font-size="28" fill="#0a2463" font-weight="700">2,025</text>
+                            <g transform="rotate(90 175 175)">
+                                <text x="175" y="165" text-anchor="middle" font-size="16" fill="#666666" font-weight="600">TRANSACTIONS</text>
+                                <text x="175" y="195" text-anchor="middle" font-size="28" fill="#0a2463" font-weight="700">2,025</text>
+                            </g>
                         </svg>
                     </div>
 
@@ -886,8 +889,10 @@
                             <circle cx="175" cy="175" r="100" fill="#fafbfc" />
 
                             <!-- Total in center -->
-                            <text x="175" y="165" text-anchor="middle" font-size="16" fill="#666666" font-weight="600">TRANSACTIONS</text>
-                            <text x="175" y="195" text-anchor="middle" font-size="28" fill="#0a2463" font-weight="700">8,964</text>
+                            <g transform="rotate(90 175 175)">
+                                <text x="175" y="165" text-anchor="middle" font-size="16" fill="#666666" font-weight="600">TRANSACTIONS</text>
+                                <text x="175" y="195" text-anchor="middle" font-size="28" fill="#0a2463" font-weight="700">8,964</text>
+                            </g>
                         </svg>
                     </div>
 
@@ -945,9 +950,6 @@
                 </div>
             </div>
 
-            <p style="margin-top: 1.5rem; color: var(--text-light); font-style: italic;">
-                Note: Product usage data represents transaction activity from all new users who created accounts Oct 1-16, 2025. The overall activation rate of 33.0% significantly exceeds the paid user activation rate of 18.4%, suggesting stronger performance from organic and other acquisition channels.
-            </p>
         </div>
 
         <div class="section animate">
@@ -955,7 +957,6 @@
             <div style="line-height: 1.8; font-size: 1.05rem;">
                 <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 1rem;">Immediate Actions:</h3>
                 <ol style="padding-left: 2rem; margin-bottom: 2rem;">
-                    <li style="margin-bottom: 1rem;"><strong>Fix Attribution Pipeline:</strong> Investigate and resolve the 99.4% data gap between reported acquisitions and matched accounts in Snowflake. This is critical for accurate ROI measurement.</li>
                     <li style="margin-bottom: 1rem;"><strong>Scale Apple Search Ads:</strong> With best-in-class CPA ($20.69) and CPI ($5.38), increase ASA budget by 30-50% to capitalize on high-intent users.</li>
                     <li style="margin-bottom: 1rem;"><strong>Optimize Meta Campaigns:</strong> Address the high CPA ($31.49) through creative testing, audience refinement, and landing page optimization. Set a 2-week timeline for 20% CPA improvement or consider budget reallocation.</li>
                     <li style="margin-bottom: 1rem;"><strong>Test TikTok Scale:</strong> With strong CPA performance ($21.59), gradually increase TikTok spend by 25% to validate scalability without compromising efficiency.</li>
@@ -973,13 +974,12 @@
                     <li style="margin-bottom: 0.75rem;">Target blended CPA reduction from $24.76 to $22.00 by end of Q4</li>
                     <li style="margin-bottom: 0.75rem;">Improve install-to-account conversion from 57.1% to 65%</li>
                     <li style="margin-bottom: 0.75rem;">Increase activation rate from current baseline to 20%+ within 30 days</li>
-                    <li style="margin-bottom: 0.75rem;">Achieve 100% attribution accuracy in data pipeline within 2 weeks</li>
                 </ul>
             </div>
         </div>
 
         <footer>
-            <p>Generated on October 27, 2025 | MyBambu Digital Marketing Analytics</p>
+            <p>MyBambu Paid Ads Analytics</p>
             <p style="margin-top: 0.5rem; opacity: 0.7;">Data sources: Ad Platform Dashboards, Snowflake Analytics Database</p>
         </footer>
     </div>
