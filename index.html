@@ -25,9 +25,9 @@
             --border: #e0e0e0;
             --shadow: rgba(0, 0, 0, 0.08);
             --google: #4285f4;
-            --meta: #1877f2;
+            --meta: #00d4ff;
             --tiktok: #000000;
-            --asa: #555555;
+            --asa: #8e8e93;
         }
 
         body {
@@ -249,6 +249,7 @@
 
         .pie-chart svg {
             transform: rotate(-90deg);
+            border-radius: 50%;
         }
 
         .pie-legend {
@@ -511,21 +512,23 @@
                             <circle cx="175" cy="175" r="140" fill="none" stroke="#4285f4" stroke-width="80"
                                 stroke-dasharray="676.9 200" stroke-dashoffset="0" />
                             <!-- Meta Ads: 9.2% -->
-                            <circle cx="175" cy="175" r="140" fill="none" stroke="#1877f2" stroke-width="80"
+                            <circle cx="175" cy="175" r="140" fill="none" stroke="#00d4ff" stroke-width="80"
                                 stroke-dasharray="80.9 796" stroke-dashoffset="-676.9" />
                             <!-- TikTok Ads: 7.9% -->
                             <circle cx="175" cy="175" r="140" fill="none" stroke="#000000" stroke-width="80"
                                 stroke-dasharray="69.5 807.4" stroke-dashoffset="-757.8" />
                             <!-- ASA: 6.0% -->
-                            <circle cx="175" cy="175" r="140" fill="none" stroke="#555555" stroke-width="80"
+                            <circle cx="175" cy="175" r="140" fill="none" stroke="#8e8e93" stroke-width="80"
                                 stroke-dasharray="52.8 824.1" stroke-dashoffset="-827.3" />
 
                             <!-- Center circle for donut effect -->
                             <circle cx="175" cy="175" r="100" fill="#fafbfc" />
 
-                            <!-- Total in center -->
-                            <text x="175" y="165" text-anchor="middle" font-size="16" fill="#666666" font-weight="600">TOTAL SPEND</text>
-                            <text x="175" y="195" text-anchor="middle" font-size="28" fill="#0a2463" font-weight="700">$195,181</text>
+                            <!-- Total in center (text needs to counter-rotate) -->
+                            <g transform="rotate(90 175 175)">
+                                <text x="175" y="165" text-anchor="middle" font-size="16" fill="#666666" font-weight="600">TOTAL SPEND</text>
+                                <text x="175" y="195" text-anchor="middle" font-size="28" fill="#0a2463" font-weight="700">$195,181</text>
+                            </g>
                         </svg>
                     </div>
 
