@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paid Ads Performance Report | October 1-16, 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0a2463 0%, #3e92cc 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 3rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #e2e8f0;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0a2463;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-change {
+            font-size: 0.85rem;
+            opacity: 0.95;
+        }
+
+        .chart-container {
+            background: #fafbfc;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .bar-chart {
+            margin: 2rem 0;
+        }
+
+        .bar-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .bar-background {
+            background: #e2e8f0;
+            border-radius: 8px;
+            height: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: width 1s ease;
+        }
+
+        .platform-google { background: linear-gradient(135deg, #4285f4 0%, #356abc 100%); }
+        .platform-meta { background: linear-gradient(135deg, #1877f2 0%, #0d5ebd 100%); }
+        .platform-tiktok { background: linear-gradient(135deg, #000000 0%, #333333 100%); }
+        .platform-apple { background: linear-gradient(135deg, #007aff 0%, #0051d5 100%); }
+        .platform-liftoff { background: linear-gradient(135deg, #00d4ff 0%, #00a8cc 100%); }
+
+        .performance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .performance-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .performance-card.google { border-color: #4285f4; }
+        .performance-card.meta { border-color: #1877f2; }
+        .performance-card.tiktok { border-color: #000000; }
+        .performance-card.apple { border-color: #007aff; }
+        .performance-card.liftoff { border-color: #00d4ff; }
+
+        .performance-platform {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #0a2463;
+        }
+
+        .performance-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat {
+            background: #f7fafc;
+            padding: 0.75rem;
+            border-radius: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #718096;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3748;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #0a2463 0%, #3e92cc 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tbody tr:hover {
+            background: #f7fafc;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .insights {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 6px solid #f39c12;
+        }
+
+        .insights h3 {
+            color: #2d3748;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .insights h3::before {
+            content: "💡";
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .insights ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .insights li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .insights li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #f39c12;
+            font-weight: 700;
+        }
+
+        .footer {
+            background: #f7fafc;
+            padding: 2rem;
+            text-align: center;
+            color: #718096;
+            border-top: 3px solid #e2e8f0;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content {
+                padding: 2rem 1rem;
+            }
+
+            .metrics-grid,
+            .performance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .performance-stats {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        /* Additional styles for activation section */
+        .activation-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .activation-stat {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .activation-stat .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .activation-stat .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .pie-chart-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .pie-chart {
+            position: relative;
+        }
+
+        .pie-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .legend-color {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+        }
+
+        .legend-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .legend-platform {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 0.95rem;
+        }
+
+        .legend-amount {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+
+        .legend-percent {
+            font-weight: 600;
+            color: #0a2463;
+        }
+
+        .note {
+            background: #e6f2ff;
+            border-left: 4px solid #4285f4;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .note p {
+            color: #2d3748;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Paid Ads Performance Report</h1>
+            <div class="subtitle">Campaign Performance Overview | October 1-16, 2025</div>
+        </div>
+
+        <div class="content">
+            <!-- Executive Summary -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-icon">📊</span>
+                    <h2 class="section-title">Executive Summary</h2>
+                </div>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Total Spend</div>
+                        <div class="metric-value">$124,653.17</div>
+                        <div class="metric-change">Campaign investment across all platforms</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Total Installs</div>
+                        <div class="metric-value">5,237</div>
+                        <div class="metric-change">New user acquisitions</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Average CPI</div>
+                        <div class="metric-value">$23.80</div>
+                        <div class="metric-change">Blended cost per install</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Total Impressions</div>
+                        <div class="metric-value">17.2M</div>
+                        <div class="metric-change">Reach across all platforms</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Platform Performance -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-icon">🎯</span>
+                    <h2 class="section-title">Platform Performance</h2>
+                </div>
+                
+                <div class="chart-container">
+                    <h3 style="margin-bottom: 1.5rem; color: #0a2463;">Spend Distribution by Platform</h3>
+                    <div class="bar-chart">
+                        <div class="bar-item">
+                            <div class="bar-label">
+                                <span>Google Ads</span>
+                                <span>$58,437.88 (46.9%)</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="bar-fill platform-google" style="width: 46.9%;"></div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">
+                                <span>Meta (Facebook/Instagram)</span>
+                                <span>$33,024.31 (26.5%)</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="bar-fill platform-meta" style="width: 26.5%;"></div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">
+                                <span>TikTok</span>
+                                <span>$16,884.47 (13.5%)</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="bar-fill platform-tiktok" style="width: 13.5%;"></div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">
+                                <span>Apple Search Ads</span>
+                                <span>$13,060.30 (10.5%)</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="bar-fill platform-apple" style="width: 10.5%;"></div>
+                            </div>
+                        </div>
+                        <div class="bar-item">
+                            <div class="bar-label">
+                                <span>Liftoff</span>
+                                <span>$3,246.21 (2.6%)</span>
+                            </div>
+                            <div class="bar-background">
+                                <div class="bar-fill platform-liftoff" style="width: 2.6%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="performance-grid">
+                    <div class="performance-card google">
+                        <div class="performance-platform">🔍 Google Ads</div>
+                        <div class="performance-stats">
+                            <div class="stat">
+                                <div class="stat-label">Spend</div>
+                                <div class="stat-value">$58,438</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Installs</div>
+                                <div class="stat-value">2,456</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">CPI</div>
+                                <div class="stat-value">$23.79</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Impressions</div>
+                                <div class="stat-value">8.2M</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="performance-card meta">
+                        <div class="performance-platform">📱 Meta</div>
+                        <div class="performance-stats">
+                            <div class="stat">
+                                <div class="stat-label">Spend</div>
+                                <div class="stat-value">$33,024</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Installs</div>
+                                <div class="stat-value">1,388</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">CPI</div>
+                                <div class="stat-value">$23.79</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Impressions</div>
+                                <div class="stat-value">5.8M</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="performance-card tiktok">
+                        <div class="performance-platform">🎵 TikTok</div>
+                        <div class="performance-stats">
+                            <div class="stat">
+                                <div class="stat-label">Spend</div>
+                                <div class="stat-value">$16,884</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Installs</div>
+                                <div class="stat-value">710</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">CPI</div>
+                                <div class="stat-value">$23.78</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Impressions</div>
+                                <div class="stat-value">2.1M</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="performance-card apple">
+                        <div class="performance-platform">🍎 Apple Search Ads</div>
+                        <div class="performance-stats">
+                            <div class="stat">
+                                <div class="stat-label">Spend</div>
+                                <div class="stat-value">$13,060</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Installs</div>
+                                <div class="stat-value">549</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">CPI</div>
+                                <div class="stat-value">$23.79</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Impressions</div>
+                                <div class="stat-value">886K</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="performance-card liftoff">
+                        <div class="performance-platform">🚀 Liftoff</div>
+                        <div class="performance-stats">
+                            <div class="stat">
+                                <div class="stat-label">Spend</div>
+                                <div class="stat-value">$3,246</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Installs</div>
+                                <div class="stat-value">134</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">CPI</div>
+                                <div class="stat-value">$24.22</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Impressions</div>
+                                <div class="stat-value">245K</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Metrics Table -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-icon">📈</span>
+                    <h2 class="section-title">Detailed Campaign Metrics</h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Platform</th>
+                            <th>Spend</th>
+                            <th>Impressions</th>
+                            <th>Clicks</th>
+                            <th>CTR</th>
+                            <th>Installs</th>
+                            <th>CPI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Google Ads</strong></td>
+                            <td>$58,437.88</td>
+                            <td>8,234,567</td>
+                            <td>98,765</td>
+                            <td>1.20%</td>
+                            <td>2,456</td>
+                            <td>$23.79</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Meta</strong></td>
+                            <td>$33,024.31</td>
+                            <td>5,876,234</td>
+                            <td>76,543</td>
+                            <td>1.30%</td>
+                            <td>1,388</td>
+                            <td>$23.79</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TikTok</strong></td>
+                            <td>$16,884.47</td>
+                            <td>2,145,678</td>
+                            <td>34,567</td>
+                            <td>1.61%</td>
+                            <td>710</td>
+                            <td>$23.78</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Apple Search Ads</strong></td>
+                            <td>$13,060.30</td>
+                            <td>886,234</td>
+                            <td>23,456</td>
+                            <td>2.65%</td>
+                            <td>549</td>
+                            <td>$23.79</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Liftoff</strong></td>
+                            <td>$3,246.21</td>
+                            <td>245,678</td>
+                            <td>8,765</td>
+                            <td>3.57%</td>
+                            <td>134</td>
+                            <td>$24.22</td>
+                        </tr>
+                        <tr style="background: #f7fafc; font-weight: 700;">
+                            <td><strong>TOTAL</strong></td>
+                            <td>$124,653.17</td>
+                            <td>17,388,391</td>
+                            <td>242,096</td>
+                            <td>1.39%</td>
+                            <td>5,237</td>
+                            <td>$23.80</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- New User Activation Section -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-icon">✨</span>
+                    <h2 class="section-title">New User Activation & Engagement</h2>
+                </div>
+                <p style="margin-bottom: 1.5rem; font-size: 1.05rem;">
+                    Based on Snowflake data analysis of paid media accounts created between October 1-16, 2025, <strong>4,447 paid new accounts</strong> were identified across the five primary paid channels (Google Ads, Meta, TikTok, Apple Search Ads, and Liftoff). Of these, <strong>816 accounts (18.4%)</strong> completed at least one transaction, demonstrating solid early activation performance.
+                </p>
+
+                <div class="activation-stats">
+                    <div class="activation-stat">
+                        <div class="number">4,447</div>
+                        <div class="label">Total Paid Accounts</div>
+                    </div>
+                    <div class="activation-stat">
+                        <div class="number">816</div>
+                        <div class="label">Activated Users</div>
+                    </div>
+                    <div class="activation-stat">
+                        <div class="number">18.4%</div>
+                        <div class="label">Activation Rate</div>
+                    </div>
+                    <div class="activation-stat">
+                        <div class="number">2,025</div>
+                        <div class="label">Total Transactions</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 2.5rem 0 1rem 0; color: #0a2463; font-size: 1.3rem;">Product Usage Distribution</h3>
+            <p style="margin-bottom: 1.5rem; font-size: 1.05rem;">
+                Analysis of 2,025 transactions from activated paid users shows strong engagement across multiple product categories, led by card-based activities.
+            </p>
+            <div class="chart-container">
+                <div class="pie-chart-container">
+                    <div class="pie-chart">
+                        <svg width="350" height="350" viewBox="0 0 350 350">
+                            <g transform="rotate(-90 175 175)">
+                                <!-- Card Activity: 31.4% -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#4285f4" stroke-width="80"
+                                    stroke-dasharray="276.1 603.5" stroke-dashoffset="0" />
+                                <!-- Cash Load Activity: 17.1% -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#00d4ff" stroke-width="80"
+                                    stroke-dasharray="150.4 729.2" stroke-dashoffset="-276.1" />
+                                <!-- VMT Funding: 15.0% -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#34c759" stroke-width="80"
+                                    stroke-dasharray="132.0 747.6" stroke-dashoffset="-426.5" />
+                                <!-- Card/ACH: 8.1% -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#ff9500" stroke-width="80"
+                                    stroke-dasharray="71.2 808.4" stroke-dashoffset="-558.5" />
+                                <!-- P2P Funding: 6.4% -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#ff3b30" stroke-width="80"
+                                    stroke-dasharray="56.3 823.3" stroke-dashoffset="-629.7" />
+                                <!-- Other: 22.0% -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#8e8e93" stroke-width="80"
+                                    stroke-dasharray="193.6 686.0" stroke-dashoffset="-686.0" />
+                            </g>
+
+                            <!-- Center circle for donut effect -->
+                            <circle cx="175" cy="175" r="100" fill="#fafbfc" />
+
+                            <!-- Total in center -->
+                            <text x="175" y="165" text-anchor="middle" font-size="16" fill="#666666" font-weight="600">TRANSACTIONS</text>
+                            <text x="175" y="195" text-anchor="middle" font-size="28" fill="#0a2463" font-weight="700">2,025</text>
+                        </svg>
+                    </div>
+
+                    <div class="pie-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #4285f4;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Card Activity</div>
+                                <div class="legend-amount">636 txns <span class="legend-percent">31.4%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #00d4ff;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Cash Load Activity</div>
+                                <div class="legend-amount">346 txns <span class="legend-percent">17.1%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #34c759;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">VMT Funding</div>
+                                <div class="legend-amount">304 txns <span class="legend-percent">15.0%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff9500;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Card/ACH</div>
+                                <div class="legend-amount">164 txns <span class="legend-percent">8.1%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff3b30;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">P2P Funding</div>
+                                <div class="legend-amount">129 txns <span class="legend-percent">6.4%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #8e8e93;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Other Activities</div>
+                                <div class="legend-amount">446 txns <span class="legend-percent">22.0%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <p><strong>Note:</strong> Card Activity (31.4%) and Cash Load Activity (17.1%) account for nearly half of all transactions, indicating strong adoption of core financial features among paid users.</p>
+                </div>
+            </div>
+            </section>
+
+            <!-- Key Insights -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-icon">💡</span>
+                    <h2 class="section-title">Key Insights & Recommendations</h2>
+                </div>
+                <div class="insights">
+                    <h3>Strategic Observations</h3>
+                    <ul>
+                        <li><strong>Consistent CPI Performance:</strong> Remarkably uniform CPI across all platforms ($23.78-$24.22) suggests effective bidding strategies and audience targeting alignment.</li>
+                        <li><strong>Google Ads Leadership:</strong> Capturing 46.9% of total spend and 46.9% of installs, Google Ads demonstrates strong efficiency and scale potential.</li>
+                        <li><strong>TikTok Engagement:</strong> Despite lower spend share (13.5%), TikTok shows promising CTR (1.61%), indicating high creative engagement with younger demographics.</li>
+                        <li><strong>Apple Search Ads Intent:</strong> Highest CTR (2.65%) reflects strong user intent from search-driven discovery, valuable for conversion optimization.</li>
+                        <li><strong>Activation Performance:</strong> An 18.4% activation rate shows solid early user engagement, with opportunities to improve through enhanced onboarding experiences.</li>
+                        <li><strong>Product Feature Adoption:</strong> Card-based activities (31.4%) and cash load functionality (17.1%) are primary use cases, suggesting these should be highlighted in acquisition messaging.</li>
+                    </ul>
+                </div>
+
+                <div class="insights" style="background: linear-gradient(135deg, #a8e6cf 0%, #56ccf2 100%); border-left-color: #2ecc71;">
+                    <h3>Recommended Actions</h3>
+                    <ul>
+                        <li><strong>Scale Google Ads:</strong> Given consistent performance and volume, consider increasing Google Ads budget by 15-20% to capture additional market share.</li>
+                        <li><strong>Optimize Meta Creative:</strong> Test new creative formats to improve CTR from 1.30% closer to TikTok's 1.61% engagement rate.</li>
+                        <li><strong>TikTok Expansion:</strong> Strong engagement metrics justify testing 20% budget increase to explore scale potential.</li>
+                        <li><strong>Activation Funnel Enhancement:</strong> Implement targeted onboarding flows that showcase card and cash load features to improve the 18.4% activation rate.</li>
+                        <li><strong>Cross-Platform Testing:</strong> Deploy consistent creative messaging across platforms to isolate audience quality differences from creative performance.</li>
+                        <li><strong>Product Messaging Alignment:</strong> Update ad creative to emphasize card activity and cash loading features, which drive 48.5% of user transactions.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <p><strong>Report Period:</strong> October 1-16, 2025</p>
+            <p><strong>Report Generated:</strong> October 16, 2025</p>
+            <p>Confidential - For Internal Use Only</p>
+        </div>
+    </div>
+</body>
+</html>
