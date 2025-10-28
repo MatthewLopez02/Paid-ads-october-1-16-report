@@ -755,7 +755,7 @@
                                 <circle cx="175" cy="175" r="140" fill="none" stroke="#34c759" stroke-width="80"
                                     stroke-dasharray="131.95 747.70" stroke-dashoffset="-426.63" />
                                 <!-- Card/ACH: 8.1% = 71.25 -->
-                                <circle cx="175" cy="175" r="140" fill="none" stroke="#4285f4" stroke-width="80"
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#ff9500" stroke-width="80"
                                     stroke-dasharray="71.25 808.40" stroke-dashoffset="-558.58" />
                                 <!-- P2P Funding: 6.4% = 56.30 -->
                                 <circle cx="175" cy="175" r="140" fill="none" stroke="#ff3b30" stroke-width="80"
@@ -827,123 +827,132 @@
         </div>
 
         <div class="section animate">
-            <h2>🌍 Overall Platform Activity (Oct 1-16)</h2>
-            <div class="kpi-grid">
-                <div class="kpi-card">
-                    <div class="label">Total Active Users</div>
-                    <div class="value">94,608</div>
-                    <div class="subtext">Platform-wide</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="label">Total Transactions</div>
-                    <div class="value">1.11M</div>
-                    <div class="subtext">All transaction types</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="label">Transaction Volume</div>
-                    <div class="value">$84.0M</div>
-                    <div class="subtext">Total processed</div>
-                </div>
-                <div class="kpi-card">
-                    <div class="label">Avg Transaction</div>
-                    <div class="value">$75.54</div>
-                    <div class="subtext">Per transaction</div>
+            <h2>👥 Overall New User Activation & Engagement</h2>
+
+            <div class="activation-section">
+                <h3>✅ Overall Activation Rate Analysis</h3>
+                <p style="margin-bottom: 1.5rem; font-size: 1.05rem;">
+                    Based on Snowflake data analysis of all new accounts created between October 1-16, 2025, <strong>12,343 new accounts</strong> were created across all channels. Of these, <strong>4,076 accounts (33.0%)</strong> completed at least one transaction, demonstrating solid activation performance across the entire user base.
+                </p>
+
+                <div class="activation-stats">
+                    <div class="activation-stat">
+                        <div class="number">12,343</div>
+                        <div class="label">Total New Accounts</div>
+                    </div>
+                    <div class="activation-stat">
+                        <div class="number">4,076</div>
+                        <div class="label">Activated Users</div>
+                    </div>
+                    <div class="activation-stat">
+                        <div class="number">33.0%</div>
+                        <div class="label">Activation Rate</div>
+                    </div>
+                    <div class="activation-stat">
+                        <div class="number">8,964</div>
+                        <div class="label">Total Transactions</div>
+                    </div>
                 </div>
             </div>
 
-            <h3 style="margin-top: 2rem; color: var(--primary); font-size: 1.3rem;">Top Transaction Types Platform-Wide</h3>
-            <div class="product-usage-grid">
-                <div class="product-card">
-                    <div class="product-name">💳 Purchase with PIN</div>
-                    <div class="stat">
-                        <span class="stat-label">Transactions</span>
-                        <span class="stat-value">616,757</span>
+            <h3 style="margin-top: 2rem; color: var(--primary); font-size: 1.3rem;">Product Usage by Transaction Count</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--text);">
+                Analysis of 8,964 transactions from all activated new users shows diverse engagement across product categories, with card activity and money transfers leading usage.
+            </p>
+            <div class="chart-container">
+                <div class="pie-chart-container">
+                    <div class="pie-chart">
+                        <svg width="350" height="350" viewBox="0 0 350 350">
+                            <g transform="rotate(-90 175 175)">
+                                <!-- Card Activity: 31.2% = 274.44 -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#4285f4" stroke-width="80"
+                                    stroke-dasharray="274.44 605.21" stroke-dashoffset="0" />
+                                <!-- VMT Funding: 22.1% = 194.40 -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#34c759" stroke-width="80"
+                                    stroke-dasharray="194.40 685.25" stroke-dashoffset="-274.44" />
+                                <!-- P2P Funding: 12.1% = 106.44 -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#ff3b30" stroke-width="80"
+                                    stroke-dasharray="106.44 773.21" stroke-dashoffset="-468.84" />
+                                <!-- Cash Load Activity: 11.6% = 102.04 -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#00d4ff" stroke-width="80"
+                                    stroke-dasharray="102.04 777.61" stroke-dashoffset="-575.28" />
+                                <!-- IMT Activity: 5.5% = 48.38 -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#ff9500" stroke-width="80"
+                                    stroke-dasharray="48.38 831.27" stroke-dashoffset="-677.32" />
+                                <!-- P2P Send: 5.1% = 44.86 -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#af52de" stroke-width="80"
+                                    stroke-dasharray="44.86 834.79" stroke-dashoffset="-725.70" />
+                                <!-- Other: 12.4% = 109.09 -->
+                                <circle cx="175" cy="175" r="140" fill="none" stroke="#8e8e93" stroke-width="80"
+                                    stroke-dasharray="109.09 770.56" stroke-dashoffset="-770.56" />
+                            </g>
+
+                            <!-- Center circle for donut effect -->
+                            <circle cx="175" cy="175" r="100" fill="#fafbfc" />
+
+                            <!-- Total in center -->
+                            <text x="175" y="165" text-anchor="middle" font-size="16" fill="#666666" font-weight="600">TRANSACTIONS</text>
+                            <text x="175" y="195" text-anchor="middle" font-size="28" fill="#0a2463" font-weight="700">8,964</text>
+                        </svg>
                     </div>
-                    <div class="stat">
-                        <span class="stat-label">Unique Users</span>
-                        <span class="stat-value">74,133</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Volume</span>
-                        <span class="stat-value">$18.6M</span>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-name">💸 Visa Money Transfer</div>
-                    <div class="stat">
-                        <span class="stat-label">Transactions</span>
-                        <span class="stat-value">69,011</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Unique Users</span>
-                        <span class="stat-value">18,885</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Volume</span>
-                        <span class="stat-value">$5.8M</span>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-name">💵 Cash Delivery</div>
-                    <div class="stat">
-                        <span class="stat-label">Transactions</span>
-                        <span class="stat-value">48,785</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Unique Users</span>
-                        <span class="stat-value">25,540</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Volume</span>
-                        <span class="stat-value">$9.7M</span>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-name">🏧 ATM Withdrawal</div>
-                    <div class="stat">
-                        <span class="stat-label">Transactions</span>
-                        <span class="stat-value">33,223</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Unique Users</span>
-                        <span class="stat-value">11,482</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Volume</span>
-                        <span class="stat-value">$6.4M</span>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-name">🔄 Card to Card</div>
-                    <div class="stat">
-                        <span class="stat-label">Transactions</span>
-                        <span class="stat-value">29,303</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Unique Users</span>
-                        <span class="stat-value">13,776</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Volume</span>
-                        <span class="stat-value">$3.6M</span>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-name">💰 Direct Deposits</div>
-                    <div class="stat">
-                        <span class="stat-label">Transactions</span>
-                        <span class="stat-value">19,792</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Unique Users</span>
-                        <span class="stat-value">10,850</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-label">Volume</span>
-                        <span class="stat-value">$15.4M</span>
+
+                    <div class="pie-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #4285f4;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Card Activity</div>
+                                <div class="legend-amount">2,794 txns <span class="legend-percent">31.2%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #34c759;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">VMT Funding</div>
+                                <div class="legend-amount">1,985 txns <span class="legend-percent">22.1%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff3b30;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">P2P Funding</div>
+                                <div class="legend-amount">1,084 txns <span class="legend-percent">12.1%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #00d4ff;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Cash Load Activity</div>
+                                <div class="legend-amount">1,040 txns <span class="legend-percent">11.6%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #ff9500;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">IMT Activity</div>
+                                <div class="legend-amount">493 txns <span class="legend-percent">5.5%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #af52de;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">P2P Send</div>
+                                <div class="legend-amount">454 txns <span class="legend-percent">5.1%</span></div>
+                            </div>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background: #8e8e93;"></div>
+                            <div class="legend-details">
+                                <div class="legend-platform">Other Activities</div>
+                                <div class="legend-amount">1,114 txns <span class="legend-percent">12.4%</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <p style="margin-top: 1.5rem; color: var(--text-light); font-style: italic;">
+                Note: Product usage data represents transaction activity from all new users who created accounts Oct 1-16, 2025. The overall activation rate of 33.0% significantly exceeds the paid user activation rate of 18.4%, suggesting stronger performance from organic and other acquisition channels.
+            </p>
         </div>
 
         <div class="section animate">
